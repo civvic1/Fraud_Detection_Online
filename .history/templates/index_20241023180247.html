@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detección de Fraude</title>
+  </head>
+  <body>
+    <h1>Detección de Transacciones Fraudulentas</h1>
+    <form action="/predecir" method="POST">
+      <label for="step">Step:</label>
+      <input type="number" id="step" name="step" /><br /><br />
+
+      <label for="amount">Amount:</label>
+      <input type="number" step="0.01" id="amount" name="amount" /><br /><br />
+
+      <!-- Agregar otros campos del dataset necesarios -->
+
+      <label for="type_TRANSFER">Es Transferencia (1 o 0):</label>
+      <input
+        type="number"
+        id="type_TRANSFER"
+        name="type_TRANSFER"
+      /><br /><br />
+
+      <label for="type_CASH_OUT">Es Cash Out (1 o 0):</label>
+      <input
+        type="number"
+        id="type_CASH_OUT"
+        name="type_CASH_OUT"
+      /><br /><br />
+
+      <button type="submit">Predecir Fraude</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detección de Fraude</title>
+    <style>
+      body {
+        background-color: #121212;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .form-container {
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+
+      input[type="number"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #0077b6;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #005f87;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Detección de Transacciones Fraudulentas</h1>
+      <form action="/predecir" method="POST">
+        <label for="step">Step:</label>
+        <input type="number" id="step" name="step" required />
+
+        <label for="amount">Amount:</label>
+        <input type="number" step="0.01" id="amount" name="amount" required />
+
+        <div class="checkbox-group">
+          <input
+            type="checkbox"
+            id="type_CASH_IN"
+            name="type_CASH_IN"
+            value="1"
+          />
+          <label for="type_CASH_IN">CASH IN</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input
+            type="checkbox"
+            id="type_CASH_OUT"
+            name="type_CASH_OUT"
+            value="1"
+          />
+          <label for="type_CASH_OUT">CASH OUT</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="type_DEBIT" name="type_DEBIT" value="1" />
+          <label for="type_DEBIT">DEBIT</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input
+            type="checkbox"
+            id="type_PAYMENT"
+            name="type_PAYMENT"
+            value="1"
+          />
+          <label for="type_PAYMENT">PAYMENT</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input
+            type="checkbox"
+            id="type_TRANSFER"
+            name="type_TRANSFER"
+            value="1"
+          />
+          <label for="type_TRANSFER">TRANSFER</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="type2_CC" name="type2_CC" value="1" />
+          <label for="type2_CC">Tarjeta de Crédito (CC)</label>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="type2_CM" name="type2_CM" value="1" />
+          <label for="type2_CM">Cuenta de Movimiento (CM)</label>
+        </div>
+
+        <input type="submit" value="Predecir Fraude" />
+      </form>
+    </div>
+
+    <script>
+      // Asegura que si los checkboxes no están marcados, se envíen con valor 0
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function () {
+        [
+          "type_CASH_IN",
+          "type_CASH_OUT",
+          "type_DEBIT",
+          "type_PAYMENT",
+          "type_TRANSFER",
+          "type2_CC",
+          "type2_CM",
+        ].forEach((id) => {
+          const checkbox = document.getElementById(id);
+          if (!checkbox.checked) {
+            checkbox.checked = true;
+            checkbox.value = 0;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
