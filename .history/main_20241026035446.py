@@ -8,18 +8,31 @@ modelo = joblib.load('models/modelo_fraude.pkl')
 
 
 # Función para convertir período del día en un valor de step
+#def convertir_periodo_a_step(periodo_dia):
+#    if periodo_dia == 'Mañana':
+#        return random.choice([1, 6])
+#    elif periodo_dia == 'Mediodía':
+#        return random.choice([2, 7])
+#    elif periodo_dia == 'Tarde':
+#        return random.choice([3, 8])
+#    elif periodo_dia == 'Noche':
+#        return random.choice([4, 9])
+#    elif periodo_dia == 'Madrugada':
+#        return random.choice([5, 10])
+
+
+# Función para asignar valores de step de manera secuencial por período del día
 def convertir_periodo_a_step(periodo_dia):
     if periodo_dia == 'Mañana':
-        return random.choice([1, 2])
+        return [1, 2]
     elif periodo_dia == 'Mediodía':
-        return random.choice([3, 4])
+        return [3, 4]
     elif periodo_dia == 'Tarde':
-        return random.choice([5, 6])
+        return [5, 6]
     elif periodo_dia == 'Noche':
-        return random.choice([7, 8])
+        return [7, 8]
     elif periodo_dia == 'Madrugada':
-        return random.choice([9, 10])
-
+        return [9, 10]
 
 
 
