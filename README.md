@@ -10,7 +10,8 @@ Este proyecto implementa un sistema de detección de fraude financiero utilizand
 - Google Cloud Platform ☁️: Servicio de nube utilizado para el despliegue del modelo.
 - Pandas y NumPy 📊: Herramientas para manipulación y análisis de datos.
 - Matplotlib y Seaborn 📈: Librerías para visualización de datos.
-
+  
+## 📦 Estructura del Proyecto
 - data/: Contiene el dataset de ejemplo.
 - models/: Almacena el modelo entrenado.
 - templates/ y static/: Archivos HTML y CSS para la interfaz de usuario.
